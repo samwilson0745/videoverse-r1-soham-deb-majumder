@@ -52,4 +52,4 @@ Retrieves stored articles with filtering and pagination.
 
 This service uses an **in-memory cache** (`Set` and `Map`) to avoid redundant database queries and speed up responses.
 - **Note:** The cache is not persistent and will be cleared when the server restarts.
-- **Scalability:** For persistent or distributed caching across multiple instances, consider using **Redis**.
+- **Scalability:** For persistent or distributed caching across multiple instances, we should consider using **Redis**.
