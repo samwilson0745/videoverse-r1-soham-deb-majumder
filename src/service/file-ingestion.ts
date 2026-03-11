@@ -32,10 +32,20 @@ export async function fileFetchingAndParsing(url: string): Promise<any[]> {
             // let isDuplicateArticle = await checkDuplicate(item.loc)
             if (urlCache.has(item.loc)) continue;
 
+            // Check if all required fields are present
+            if (!item.loc || 
+                !item.news.title || 
+                !item.news.publication_date || 
+                !item.news.publication?.name || 
+                !item.news.publication?.language) {
+                console.warn(`Skipping item due to missing required fields: ${item.loc || 'unknown URL'}`);
+                continue;
+            }
+
             const articleAttrs: ArticleType = {
                 url: item.loc,
-                publication_name: item.news.publication?.name || "NDTV",
-                publication_language: item.news.publication?.language || "en",
+                publication_name: item.news.publication.name,
+                publication_language: item.news.publication.language,
                 publication_date: item.news.publication_date,
                 title: item.news.title,
                 keywords: item.news.keywords ? item.news.keywords.split(',').map((k: string) => k.trim()) : []
