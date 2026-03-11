@@ -43,8 +43,8 @@ Retrieves stored articles with filtering and pagination.
 - **URL:** `/articles`
 - **Method:** `GET`
 - **Query Parameters:**
-  - `after`: ISO8601 date (e.g., `2024-03-01`)
-  - `before`: ISO8601 date (e.g., `2024-03-11`)
+  - `after`: ISO8601 date (e.g., `2026-03-11T00:00:00Z`)
+  - `before`: ISO8601 date (e.g., `2026-03-11T23:59:59Z`)
   - `page`: Page number (default: 1)
   - `limit`: Items per page (default: 10, max: 100)
 
